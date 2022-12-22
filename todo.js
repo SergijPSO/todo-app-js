@@ -1,32 +1,41 @@
 'use strict'
 
 let todos = [
-  {
-    text: 'Learn js during the day',
-    completed: false
-  },
-  { 
-    text: 'To work with fixes',
-    completed: false
-  },
-  { 
-    text: 'Wrote to Yura',
-    completed: true
-  },
-  { 
-    text: 'Check email',
-    completed: false
-  },
-  { 
-    text: 'Feed my cat',
-    completed: true
-  }
+  // {
+  //   text: 'Learn js during the day',
+  //   completed: false
+  // },
+  // { 
+  //   text: 'To work with fixes',
+  //   completed: false
+  // },
+  // { 
+  //   text: 'Wrote to Yura',
+  //   completed: true
+  // },
+  // { 
+  //   text: 'Check email',
+  //   completed: false
+  // },
+  // { 
+  //   text: 'Feed my cat',
+  //   completed: true
+  // }
 ]
 
 const filters = {
   searchText: '',
   hideCompleted: false
 }
+
+// Check for existing saved data
+
+const todosJSON = localStorage.getItem('todos')
+if(todosJSON !== null) {
+  todos = JSON.parse(todosJSON)
+  console.log(todos)
+}
+
 
 function renderTodos(todos, filters) {
   let filteredTodos = todos.filter(function (todo)  {
@@ -56,12 +65,26 @@ function renderTodos(todos, filters) {
   
   filteredTodos.forEach((todoItem) => {
     const todoParagraph = document.createElement('p')
-    todoParagraph.textContent = todoItem.text
+
+    if(todoItem.text.length > 0) {
+      todoParagraph.textContent = todoItem.text
+    } else {
+      todoParagraph.textContent = 'Empty string'
+    }
+
     document.querySelector('#todos').appendChild(todoParagraph)
   })
 }
 
 renderTodos(todos, filters)
+
+// document.querySelector('#add-button').addEventListener('click', function(e) {
+//   todos.push({
+//     text: e.target.elements.text.value,
+//     completed: false
+//   })
+//   renderTodos(todos, filters)
+// })
 
 document.querySelector('#search-text').addEventListener('input', function(e) {
   console.log(e.target.value)
