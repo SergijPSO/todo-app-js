@@ -1,49 +1,65 @@
-//Getting saved todos
-function getSavedtodos() {
-	const todosJSON = localStorage.getItem('todos')
+// Fetch existing todos from localStorage
+const getSavedTodos = function () {
+  const todosJSON = localStorage.getItem('todos')
 
-	if(todosJSON !== null) {
-		return JSON.parse(todosJSON)
-	} else {
-		return []
-	}
+  if (todosJSON !== null) {
+      return JSON.parse(todosJSON)
+  } else {
+      return []
+  }
 }
 
-//Generate todos items in DOM
-function generateTodoDom(todoItem) {
-	const todoParagraph = document.createElement('p')
-	if(todoItem.text.length > 0) {
-		todoParagraph.textContent = todoItem.text
-	}
-	return todoParagraph
+// Save todos to localStorage
+const saveTodos = function (todos) {
+  localStorage.setItem('todos', JSON.stringify(todos))
 }
 
-//Create summary
-function createSummary(incompletedTodos) {
-	const summary = document.createElement('h1')
-  summary.textContent = `You have ${incompletedTodos.length} things todo that are incompleted`
-  document.querySelector('#todos').appendChild(summary)
-}
-
-//Reneder todos
-function renderTodos(todos, filters) {
-  let filteredTodos = todos.filter( function(todo)  {
+// Render application todos based on filters
+const renderTodos = function (todos, filters) {
+  const filteredTodos = todos.filter(function (todo) {
     const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
     const hideCompletedMatch = !filters.hideCompleted || !todo.completed
-
+    
     return searchTextMatch && hideCompletedMatch
   })
 
-  const incompletedTodos = filteredTodos.filter((todoItem) => {
-    return !todoItem.completed
+  const incompleteTodos = filteredTodos.filter(function (todo) {
+    return !todo.completed
   })
-  
-  document.querySelector('#todos').innerHTML = ''
 
-	createSummary(incompletedTodos)
-  
-  filteredTodos.forEach((todoItem) => {
-    const todoParagraph = generateTodoDom(todoItem)
-    document.querySelector('#todos').appendChild(todoParagraph)
+  document.querySelector('#todos').innerHTML = ''
+  document.querySelector('#todos').appendChild(generateSummaryDOM(incompleteTodos))
+
+  filteredTodos.forEach(function (todo) {
+      document.querySelector('#todos').appendChild(generateTodoDOM(todo))
   })
+}
+
+// Get the DOM elements for an individual note
+const generateTodoDOM = function (todo) {
+  const todoEl = document.createElement('div')
+  const checkbox = document.createElement('input')
+  const todoText = document.createElement('span')
+  const removeButton = document.createElement('button')
+
+  // Setup todo checkbox
+  checkbox.setAttribute('type', 'checkbox')
+  todoEl.appendChild(checkbox)
+
+  // Setup the todo text
+  todoText.textContent = todo.text
+  todoEl.appendChild(todoText)
+
+  // Setup the remove button
+  removeButton.textContent = 'x'
+  todoEl.appendChild(removeButton)
+
+  return todoEl
+}
+
+// Get the DOM elements for list summary
+const generateSummaryDOM = function (incompleteTodos) {
+  const summary = document.createElement('h2')
+  summary.textContent = `You have ${incompleteTodos.length} todos left`
+  return summary
 }
