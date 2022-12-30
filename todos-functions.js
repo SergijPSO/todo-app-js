@@ -3,9 +3,9 @@ const getSavedTodos = function () {
   const todosJSON = localStorage.getItem('todos')
 
   if (todosJSON !== null) {
-      return JSON.parse(todosJSON)
+    return JSON.parse(todosJSON)
   } else {
-      return []
+    return []
   }
 }
 
@@ -34,43 +34,59 @@ const renderTodos = function (todos, filters) {
     return searchTextMatch && hideCompletedMatch
   })
 
-  const incompleteTodos = filteredTodos.filter(function (todo) {
+  const incompleteTodos = filteredTodos.filter(function(todo) {
     return !todo.completed
   })
 
   document.querySelector('#todos').innerHTML = ''
   document.querySelector('#todos').appendChild(generateSummaryDOM(incompleteTodos))
 
-  filteredTodos.forEach(function (todo) {
-      document.querySelector('#todos').appendChild(generateTodoDOM(todo))
+  filteredTodos.forEach(function(todo) {
+    document.querySelector('#todos').appendChild(generateTodoDOM(todo))
   })
 }
 
+function toggleTodo(id) {
+  const todo = todos.find(function(todo) {
+    return todo.id === id
+  })
+
+  if(todo !== undefined) {
+    todo.completed = !todo.completed
+  }
+}
 
 // Get the DOM elements for an individual note
 const generateTodoDOM = function (todo) {
-  const todoEl = document.createElement('div')
-  const checkbox = document.createElement('input')
-  const todoText = document.createElement('span')
-  const removeButton = document.createElement('button')
+const todoEl = document.createElement('div')
+const checkbox = document.createElement('input')
+const todoText = document.createElement('a')
+const removeButton = document.createElement('button')
+
+  // Setup todo checkbox
+  checkbox.setAttribute('type', 'checkbox')
+  checkbox.checked = todo.completed
+  todoEl.appendChild(checkbox)
+  checkbox.addEventListener('change', function() {
+    toggleTodo(todo.id)
+    saveTodos(todos)
+    renderTodos(todos, filters)
+  })
+
+  // Setup the todo text
+  todoText.textContent = todo.text
+  // todoText.setAttribute('href', `/edit.html#${todo.id}`)
+  todoEl.appendChild(todoText)
+
+  // Setup the remove button
+  removeButton.textContent = 'x'
+  todoEl.appendChild(removeButton)
 
   removeButton.addEventListener('click', function() {
     removeTodo(todo.id)
     saveTodos(todos)
     renderTodos(todos, filters)
   })
-
-  // Setup todo checkbox
-  checkbox.setAttribute('type', 'checkbox')
-  todoEl.appendChild(checkbox)
-
-  // Setup the todo text
-  todoText.textContent = todo.text
-  todoEl.appendChild(todoText)
-
-  // Setup the remove button
-  removeButton.textContent = 'x'
-  todoEl.appendChild(removeButton)
 
   return todoEl
 }

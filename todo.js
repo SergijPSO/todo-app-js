@@ -13,16 +13,19 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
 })
 
 document.querySelector('#new-todo').addEventListener('submit', function (e) {
-    e.preventDefault()
-    todos.push({
-      id: generateUID(),
-      text: e.target.elements.text.value,
-      completed: false
-    })
+  e.preventDefault()
+  const id = generateUID()
+  todos.push({
+    id: id,
+    text: e.target.elements.text.value,
+    completed: false
+  })
     
-    saveTodos(todos)
-    renderTodos(todos, filters)
-    e.target.elements.text.value = ''
+  saveTodos(todos)
+  // renderTodos(todos, filters)
+  location.assign(`/edit.html#${id}`)
+
+  e.target.elements.text.value = ''
 })
 
 document.querySelector('#hide-completed').addEventListener('change', function (e) {
