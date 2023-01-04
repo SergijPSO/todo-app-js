@@ -1,7 +1,7 @@
 // Fetch existing todos from localStorage
 const getSavedTodos = () => {
   const todosJSON = localStorage.getItem('todos')
-  return todosJSON !== null ? JSON.parse(todosJSON) : []
+  return todosJSON ? JSON.parse(todosJSON) : []
 }
 
 // Save todos to localStorage
@@ -33,7 +33,7 @@ const renderTodos = (todos, filters) => {
 
 const toggleTodo = (id) => {
   const todo = todos.find((todo) => todo.id === id)
-  if(todo !== undefined) {
+  if(todo) {
     todo.completed = !todo.completed
   }
 }
@@ -76,9 +76,4 @@ const generateSummaryDOM = (incompleteTodos) => {
   const summary = document.createElement('h2')
   summary.textContent = `You have ${incompleteTodos.length} todos left`
   return summary
-}
-
-// Generating uniq todos
-const generateUID = function() {
-	return ((new Date()).getTime())
 }
