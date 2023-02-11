@@ -47,9 +47,14 @@ const toggleTodo = (id) => {
 // Get the DOM elements for an individual note
 const generateTodoDOM = (todo) => {
 const todoEl = document.createElement('div')
+todoEl.classList.add('todo-app__item')
 const checkbox = document.createElement('input')
+checkbox.classList.add('todo-app__item-status')
 const todoText = document.createElement('a')
+todoText.classList.add('todo-app__item-link')
+
 const removeButton = document.createElement('button')
+removeButton.classList.add('todo-app__button-remove')
 
   // Setup todo checkbox
   checkbox.setAttribute('type', 'checkbox')
@@ -66,7 +71,7 @@ const removeButton = document.createElement('button')
   todoEl.appendChild(todoText)
 
   // Setup the remove button
-  removeButton.textContent = 'x'
+  // removeButton.textContent = 'x'
   todoEl.appendChild(removeButton)
 
   removeButton.addEventListener('click', () => {
@@ -80,6 +85,7 @@ const removeButton = document.createElement('button')
 // Get the DOM elements for list summary
 const generateSummaryDOM = (incompleteTodos) => {
   const summary = document.createElement('h2')
+  summary.classList.add('todo-app__summary')
   summary.textContent = `You have ${incompleteTodos.length} todos left`
   return summary
 }
