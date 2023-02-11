@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 
 <html>
-	<head></head>
+	<head>
+		<link rel="stylesheet" href="./styles/css/styles.css">
+	</head>
 	<body>
 		<div class="todo-app">
 			<div class="todo-app__header">
 				<h1 class="todo-app__title">Todos</h1>
-				<input class="todo-app__search" id="search-text" type="text" placeholder="Filter todos">
-				<label class="todo_app__label">
-					<input class="todo-app__visibility" type="checkbox" id="hide-completed"> Hide completed
+				<label class="todo-app__search-label" for="search-text">Search</label>
+				<input class="todo-app__search" id="search-text" type="text" placeholder="What todo you are looking for?">
+				<label class="todo-app__custom-container">
+					<input class="todo-app__item-status" type="checkbox" id="hide-completed">
+					<p class="todo-app__item-text">Hide completed</p>
+					<span class="todo-app__custom-checkbox"></span>
 				</label>
 			</div>
 
 			<div class="todo-app__container">
 				<div id="todos" class="todo-app__todos"></div>
 				<form class="todo-app__item-new" id="new-todo">
-					<input class="todo-app__name" type="text" placeholder="Something to do" name="text">
-					<button class="todo-app__button-add">Add Todo</button>
+					<input class="todo-app__name" type="text" placeholder="What yo need to do?" name="text">
+					<button class="todo-app__button-add">+Add</button>
 				</form>
 			</div>
 		</div>

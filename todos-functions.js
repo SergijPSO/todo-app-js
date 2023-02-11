@@ -48,9 +48,17 @@ const toggleTodo = (id) => {
 const generateTodoDOM = (todo) => {
 const todoEl = document.createElement('div')
 todoEl.classList.add('todo-app__item')
+
 const checkbox = document.createElement('input')
 checkbox.classList.add('todo-app__item-status')
-const todoText = document.createElement('a')
+
+const checkboxContainer = document.createElement('label')
+checkboxContainer.classList.add('todo-app__custom-container')
+
+const customCheckbox = document.createElement('span')
+customCheckbox.classList.add('todo-app__custom-checkbox')
+
+const todoText = document.createElement('p')
 todoText.classList.add('todo-app__item-link')
 
 const removeButton = document.createElement('button')
@@ -59,7 +67,9 @@ removeButton.classList.add('todo-app__button-remove')
   // Setup todo checkbox
   checkbox.setAttribute('type', 'checkbox')
   checkbox.checked = todo.completed
-  todoEl.appendChild(checkbox)
+  checkboxContainer.appendChild(checkbox)
+  todoEl.appendChild(checkboxContainer)
+  checkboxContainer.appendChild(customCheckbox)
   checkbox.addEventListener('change', () => {
     toggleTodo(todo.id)
     saveTodos(todos)
@@ -68,7 +78,7 @@ removeButton.classList.add('todo-app__button-remove')
 
   // Setup the todo text
   todoText.textContent = todo.text
-  todoEl.appendChild(todoText)
+  checkboxContainer.appendChild(todoText)
 
   // Setup the remove button
   // removeButton.textContent = 'x'
