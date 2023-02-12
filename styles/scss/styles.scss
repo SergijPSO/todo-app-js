@@ -13,11 +13,10 @@ $app-white: #fff;
 $app-dark: #1E252B;
 $app-grey: #747579;
 $app-green: #0A9767;
-$app-half-transparent-white: rgba(2 55, 255, 255, .5);
+$app-half-transparent-white: rgba(255, 255, 255, .5);
 
 //Styles
 html {
-  height: 100%;
   background: linear-gradient(153deg, $app-green 0%, #12191e 45%);
 }
 

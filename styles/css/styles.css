@@ -5,9 +5,7 @@
   text-decoration: none;
 }
 
-body {
-  height: 100%;
-  background: #0A9767;
+html {
   background: linear-gradient(153deg, #0A9767 0%, #12191e 45%);
 }
 
