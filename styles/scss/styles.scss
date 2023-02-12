@@ -16,15 +16,10 @@ $app-green: #0A9767;
 $app-half-transparent-white: rgba(255, 255, 255, .5);
 
 //Styles
-html {
-  height: 100%;
-  overflow: hidden;
-}
-
 body {
   height: 100%;
   background: $app-green;
-  background: linear-gradient(153deg, #0A9767 0%, #12191e 45%);
+  background: linear-gradient(153deg, $app-green 0%, #12191e 45%);
 }
 
 .todo-app {

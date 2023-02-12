@@ -5,11 +5,6 @@
   text-decoration: none;
 }
 
-html {
-  height: 100%;
-  overflow: hidden;
-}
-
 body {
   height: 100%;
   background: #0A9767;
