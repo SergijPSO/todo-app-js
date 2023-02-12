@@ -15,10 +15,15 @@ $app-dark: #1E252B;
 $app-grey: #747579;
 $app-green: #0A9767;
 
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
-  height: 100vh;
+  height: 100%;
   background: $app-green;
-  background: linear-gradient(112deg, #0A9767 0%, #1E252B 62%);
+  background: linear-gradient(153deg, #0A9767 0%, #12191e 45%);
 }
 
 .todo-app {
@@ -32,13 +37,15 @@ body {
     overflow: scroll;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    padding-right: 10px;
+    padding-left: 12px;
 
     &::-webkit-scrollbar {
-      width: 6px;
+      width: 2px;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: $app-white;
+      background: $app-half-transparent-white;
       border-radius: 10px;
     }
 
@@ -76,7 +83,11 @@ body {
     border-radius: 10px;
     background-color: $app-dark;
     padding: 30px 132px;
-    border: 2px solid $app-half-transparent-white;
+  }
+
+  &__item-link {
+    max-width: 294px;
+    word-break: break-all;
   }
 
   &__item-link,
