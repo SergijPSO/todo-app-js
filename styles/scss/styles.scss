@@ -15,6 +15,7 @@ $app-dark: #1E252B;
 $app-grey: #747579;
 $app-green: #0A9767;
 
+//Styles
 html {
   height: 100%;
   overflow: hidden;
@@ -27,26 +28,26 @@ body {
 }
 
 .todo-app {
-  max-width: 640px;
+  max-width: 40em;
   width: 100%;
-  margin: 104px auto;
+  margin: 6.5em auto;
   font-family: 'Raleway', sans-serif;
 
   &__todos {
-    max-height: 420px;
+    max-height: 26.25em;
     overflow: scroll;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    padding-right: 10px;
-    padding-left: 12px;
+    padding-right: .625em;
+    padding-left: .75em;
 
     &::-webkit-scrollbar {
-      width: 2px;
+      width: .125em;
     }
 
     &::-webkit-scrollbar-thumb {
       background: $app-half-transparent-white;
-      border-radius: 10px;
+      border-radius: .625em;
     }
 
     &::-webkit-scrollbar-thumb:hover {
@@ -56,7 +57,7 @@ body {
   }
 
   &__title {
-    font-size: 24px;
+    font-size: 1.5em;
   }
 
   &__search-label {
@@ -64,13 +65,13 @@ body {
   }
 
   &__header {
-    max-height: 240px;
+    max-height: 15em;
     height: 100%;
     margin-bottom: 1em;
   }
 
   &__summary {
-    margin-bottom: 26px;
+    margin-bottom: 1.625em;
   }
 
   &__summary,
@@ -80,29 +81,29 @@ body {
 
   &__header,
   &__container {
-    border-radius: 10px;
+    border-radius: .625em;
     background-color: $app-dark;
-    padding: 30px 132px;
+    padding: 1.875em 8.25em;
   }
 
   &__item-link {
-    max-width: 294px;
+    max-width: 18.375em;
     word-break: break-all;
   }
 
   &__item-link,
   &__item-text {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 1em;
+    line-height: 1.625em;
   }
 
   &__item {
     display: flex;
     justify-content: space-between;
-    margin: 7px 0;
+    margin: .438em 0;
     &-new {
       width: 100%;
-      margin-top: 26px;
+      margin-top: 1.625em;
     }
   }
 
@@ -112,19 +113,19 @@ body {
 
   &__search {
     width: 90%;
-    margin: 8px 0 28px;
+    margin: .5em 0 1.75em;
   }
 
   &__name,
   &__search {
-    padding: 10px 16px;
-    border-radius: 4px;
-    border: 2px solid $app-half-transparent-white;
+    padding: .625em 1em;
+    border-radius: .25em;
+    border: .125em solid $app-half-transparent-white;
     background-color: $app-dark;
     outline: none;
     color: $app-grey;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: .875em;
+    line-height: 1.5em;
 
     &:focus {
       border-color: $app-green;
@@ -140,8 +141,8 @@ body {
 
   &__button {
     &-remove {
-      width: 24px;
-      height: 24px;
+      width: 1.5em;
+      height: 1.5em;
       border: none;
       border-radius: 50%;
       cursor: pointer;
@@ -150,10 +151,10 @@ body {
     }
 
     &-add {
-      font-size: 14px;
-      padding: 16px 18px;
+      font-size: .875em;
+      padding: 1em 1.125em;
       background-color: $app-green;
-      border-radius: 4px;
+      border-radius: .25em;
       border: 0;
       cursor: pointer;
     }
@@ -164,10 +165,10 @@ body {
   &__custom-container {
     display: block;
     position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
+    padding-left: 2.188em;
+    margin-bottom: .75em;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 1.375em;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -186,10 +187,10 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    height: 21px;
-    width: 21px;
-    border: 2px solid $app-green;
-    border-radius: 4px;
+    height: 1.313em;
+    width: 1.313em;
+    border: .125em solid $app-green;
+    border-radius: .25em;
 
     &:after {
       content: "";
@@ -212,12 +213,12 @@ body {
     }
 
     .todo-app__custom-checkbox:after {
-      left: 7px;
-      top: 2px;
-      width: 6px;
-      height: 12px;
+      left: .438em;
+      top: .125em;
+      width: .375em;
+      height: .75em;
       border: solid $app-dark;
-      border-width: 0 2px 2px 0;
+      border-width: 0 .125em .125em 0;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
