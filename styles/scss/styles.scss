@@ -10,10 +10,10 @@
 
 //Variables
 $app-white: #fff;
-$app-half-transparent-white: rgba(255, 255, 255, .5);
 $app-dark: #1E252B;
 $app-grey: #747579;
 $app-green: #0A9767;
+$app-half-transparent-white: rgba(255, 255, 255, .5);
 
 //Styles
 html {
@@ -157,6 +157,9 @@ body {
       border-radius: .25em;
       border: 0;
       cursor: pointer;
+      width: 100%;
+      max-width: 5.225em;
+      overflow: hidden;
     }
   }
 }

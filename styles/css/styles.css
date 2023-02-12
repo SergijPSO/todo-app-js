@@ -17,85 +17,85 @@ body {
 }
 
 .todo-app {
-  max-width: 640px;
+  max-width: 40em;
   width: 100%;
-  margin: 104px auto;
+  margin: 6.5em auto;
   font-family: "Raleway", sans-serif;
 }
 .todo-app__todos {
-  max-height: 420px;
+  max-height: 26.25em;
   overflow: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  padding-right: 10px;
-  padding-left: 12px;
+  padding-right: 0.625em;
+  padding-left: 0.75em;
 }
 .todo-app__todos::-webkit-scrollbar {
-  width: 2px;
+  width: 0.125em;
 }
 .todo-app__todos::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
+  border-radius: 0.625em;
 }
 .todo-app__todos::-webkit-scrollbar-thumb:hover {
   background: #0A9767;
   cursor: pointer;
 }
 .todo-app__title {
-  font-size: 24px;
+  font-size: 1.5em;
 }
 .todo-app__search-label {
   color: #747579;
 }
 .todo-app__header {
-  max-height: 240px;
+  max-height: 15em;
   height: 100%;
   margin-bottom: 1em;
 }
 .todo-app__summary {
-  margin-bottom: 26px;
+  margin-bottom: 1.625em;
 }
 .todo-app__summary, .todo-app__title {
   text-align: center;
 }
 .todo-app__header, .todo-app__container {
-  border-radius: 10px;
+  border-radius: 0.625em;
   background-color: #1E252B;
-  padding: 30px 132px;
+  padding: 1.875em 8.25em;
 }
 .todo-app__item-link {
-  max-width: 294px;
+  max-width: 18.375em;
   word-break: break-all;
 }
 .todo-app__item-link, .todo-app__item-text {
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 1em;
+  line-height: 1.625em;
 }
 .todo-app__item {
   display: flex;
   justify-content: space-between;
-  margin: 7px 0;
+  margin: 0.438em 0;
 }
 .todo-app__item-new {
   width: 100%;
-  margin-top: 26px;
+  margin-top: 1.625em;
 }
 .todo-app__name {
   width: 69%;
 }
 .todo-app__search {
   width: 90%;
-  margin: 8px 0 28px;
+  margin: 0.5em 0 1.75em;
 }
 .todo-app__name, .todo-app__search {
-  padding: 10px 16px;
-  border-radius: 4px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 0.625em 1em;
+  border-radius: 0.25em;
+  border: 0.125em solid rgba(255, 255, 255, 0.5);
   background-color: #1E252B;
   outline: none;
   color: #747579;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 0.875em;
+  line-height: 1.5em;
 }
 .todo-app__name:focus, .todo-app__search:focus {
   border-color: #0A9767;
@@ -104,8 +104,8 @@ body {
   color: #fff;
 }
 .todo-app__button-remove {
-  width: 24px;
-  height: 24px;
+  width: 1.5em;
+  height: 1.5em;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -113,21 +113,24 @@ body {
   background-size: cover;
 }
 .todo-app__button-add {
-  font-size: 14px;
-  padding: 16px 18px;
+  font-size: 0.875em;
+  padding: 1em 1.125em;
   background-color: #0A9767;
-  border-radius: 4px;
+  border-radius: 0.25em;
   border: 0;
   cursor: pointer;
+  width: 100%;
+  max-width: 5.225em;
+  overflow: hidden;
 }
 
 .todo-app__custom-container {
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  padding-left: 2.188em;
+  margin-bottom: 0.75em;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 1.375em;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -144,10 +147,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  height: 21px;
-  width: 21px;
-  border: 2px solid #0A9767;
-  border-radius: 4px;
+  height: 1.313em;
+  width: 1.313em;
+  border: 0.125em solid #0A9767;
+  border-radius: 0.25em;
 }
 .todo-app__custom-checkbox:after {
   content: "";
@@ -164,12 +167,12 @@ body {
   cursor: pointer;
 }
 .todo-app__custom-container .todo-app__custom-checkbox:after {
-  left: 7px;
-  top: 2px;
-  width: 6px;
-  height: 12px;
+  left: 0.438em;
+  top: 0.125em;
+  width: 0.375em;
+  height: 0.75em;
   border: solid #1E252B;
-  border-width: 0 2px 2px 0;
+  border-width: 0 0.125em 0.125em 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
