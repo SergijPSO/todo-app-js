@@ -6,19 +6,33 @@
 }
 
 body {
-  background-color: #1E1F25;
+  height: 100vh;
+  background: #0A9767;
+  background: linear-gradient(112deg, #0A9767 0%, #1E252B 62%);
 }
 
 .todo-app {
-  margin-top: 104px;
   max-width: 640px;
   width: 100%;
-  margin: 76px auto;
+  margin: 104px auto;
   font-family: "Raleway", sans-serif;
 }
 .todo-app__todos {
   max-height: 420px;
   overflow: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+.todo-app__todos::-webkit-scrollbar {
+  width: 6px;
+}
+.todo-app__todos::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 10px;
+}
+.todo-app__todos::-webkit-scrollbar-thumb:hover {
+  background: #0A9767;
+  cursor: pointer;
 }
 .todo-app__title {
   font-size: 24px;
@@ -29,7 +43,7 @@ body {
 .todo-app__header {
   max-height: 240px;
   height: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 1em;
 }
 .todo-app__summary {
   margin-bottom: 26px;
@@ -40,7 +54,8 @@ body {
 .todo-app__header, .todo-app__container {
   border-radius: 10px;
   background-color: #1E252B;
-  padding: 30px 124px;
+  padding: 30px 132px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 .todo-app__item-link, .todo-app__item-text {
   font-size: 16px;
@@ -56,10 +71,10 @@ body {
   margin-top: 26px;
 }
 .todo-app__name {
-  width: 72%;
+  width: 69%;
 }
 .todo-app__search {
-  width: 100%;
+  width: 90%;
   margin: 8px 0 28px;
 }
 .todo-app__name, .todo-app__search {
@@ -79,11 +94,12 @@ body {
   color: #fff;
 }
 .todo-app__button-remove {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
+  border: none;
   border-radius: 50%;
   cursor: pointer;
-  background-color: #1E252B;
+  background: url("/assets/ic_delete.svg");
   background-size: cover;
 }
 .todo-app__button-add {
@@ -107,7 +123,6 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
-
 .todo-app__item-status {
   position: absolute;
   opacity: 0;
@@ -115,7 +130,6 @@ body {
   height: 0;
   width: 0;
 }
-
 .todo-app__custom-checkbox {
   position: absolute;
   top: 0;
@@ -125,25 +139,20 @@ body {
   border: 2px solid #0A9767;
   border-radius: 4px;
 }
-
-.todo-app__custom-container:hover .todo-app__item-status ~ .todo-app__custom-checkbox {
-  cursor: pointer;
-}
-
-.todo-app__custom-container .todo-app__item-status:checked ~ .todo-app__custom-checkbox {
-  background-color: #0A9767;
-}
-
 .todo-app__custom-checkbox:after {
   content: "";
   position: absolute;
   display: none;
 }
-
 .todo-app__custom-container .todo-app__item-status:checked ~ .todo-app__custom-checkbox:after {
   display: block;
 }
-
+.todo-app__custom-container .todo-app__item-status:checked ~ .todo-app__custom-checkbox {
+  background-color: #0A9767;
+}
+.todo-app__custom-container:hover .todo-app__item-status ~ .todo-app__custom-checkbox {
+  cursor: pointer;
+}
 .todo-app__custom-container .todo-app__custom-checkbox:after {
   left: 7px;
   top: 2px;
