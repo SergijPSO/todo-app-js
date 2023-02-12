@@ -8,6 +8,7 @@
   text-decoration: none;
 }
 
+
 //Variables
 $app-white: #fff;
 $app-dark: #1E252B;
@@ -17,13 +18,15 @@ $app-half-transparent-white: rgba(255, 255, 255, .5);
 
 //Styles
 html {
+  height: 100vh;
   background: linear-gradient(153deg, $app-green 0%, #12191e 45%);
 }
 
 .todo-app {
   max-width: 40em;
   width: 100%;
-  margin: 6.5em auto;
+  margin: 0 auto;
+  padding-top: 2.5em;
   font-family: 'Raleway', sans-serif;
 
   &__todos {

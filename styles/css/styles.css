@@ -6,13 +6,15 @@
 }
 
 html {
+  height: 100vh;
   background: linear-gradient(153deg, #0A9767 0%, #12191e 45%);
 }
 
 .todo-app {
   max-width: 40em;
   width: 100%;
-  margin: 6.5em auto;
+  margin: 0 auto;
+  padding-top: 2.5em;
   font-family: "Raleway", sans-serif;
 }
 .todo-app__todos {
